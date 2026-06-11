@@ -1,0 +1,85 @@
+{
+  "description": "Evaluation queries with expected relevant drug_ids (ground truth). Used to compare transformer retriever vs TF-IDF baseline.",
+  "queries": [
+    {
+      "query": "I have high blood pressure and need something to lower it",
+      "relevant_ids": ["D001", "D002", "D011", "D012", "D013"]
+    },
+    {
+      "query": "patient with type 2 diabetes needs first-line oral medication",
+      "relevant_ids": ["D003", "D034", "D035"]
+    },
+    {
+      "query": "feeling depressed and anxious for months, need an antidepressant",
+      "relevant_ids": ["D005", "D015", "D026", "D031", "D038"]
+    },
+    {
+      "query": "asthma attack, trouble breathing, need rescue inhaler",
+      "relevant_ids": ["D010", "D028"]
+    },
+    {
+      "query": "high cholesterol levels, want to reduce risk of heart attack",
+      "relevant_ids": ["D004", "D033"]
+    },
+    {
+      "query": "heartburn and acid reflux after meals",
+      "relevant_ids": ["D008", "D023"]
+    },
+    {
+      "query": "sneezing runny nose seasonal allergies",
+      "relevant_ids": ["D021", "D022", "D037", "D028"]
+    },
+    {
+      "query": "burning shooting nerve pain in feet from diabetes",
+      "relevant_ids": ["D014", "D031", "D032"]
+    },
+    {
+      "query": "bacterial throat infection that needs antibiotic treatment",
+      "relevant_ids": ["D016", "D017"]
+    },
+    {
+      "query": "underactive thyroid replacement hormone",
+      "relevant_ids": ["D009"]
+    },
+    {
+      "query": "atrial fibrillation needs anticoagulation to prevent stroke",
+      "relevant_ids": ["D019", "D025"]
+    },
+    {
+      "query": "moderate pain and fever in adult patient",
+      "relevant_ids": ["D006", "D007", "D036", "D039"]
+    },
+    {
+      "query": "elderly man with difficulty urinating from enlarged prostate",
+      "relevant_ids": ["D027"]
+    },
+    {
+      "query": "swollen legs from heart failure need diuretic",
+      "relevant_ids": ["D024", "D013"]
+    },
+    {
+      "query": "child with attention problems in school",
+      "relevant_ids": ["D040"]
+    },
+    {
+      "query": "severe allergic reaction needs systemic anti-inflammatory",
+      "relevant_ids": ["D020", "D021"]
+    },
+    {
+      "query": "type 1 diabetes basal insulin coverage overnight",
+      "relevant_ids": ["D018"]
+    },
+    {
+      "query": "fibromyalgia chronic widespread pain treatment",
+      "relevant_ids": ["D031", "D032"]
+    },
+    {
+      "query": "rheumatoid arthritis flare-up needs anti-inflammatory",
+      "relevant_ids": ["D020", "D039", "D006"]
+    },
+    {
+      "query": "post heart attack secondary prevention antiplatelet",
+      "relevant_ids": ["D025", "D036"]
+    }
+  ]
+}
