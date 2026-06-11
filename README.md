@@ -1,6 +1,8 @@
 # Drug Recommendation NLP Engine
 
-Transformer-based drug recommendation REST API backed by a medical knowledge-base retrieval pipeline. Compares a Hugging Face sentence-transformer + FAISS retriever against a TF-IDF baseline; on the bundled eval set the transformer retriever outperforms TF-IDF by ~15% on top-5 recall.
+Transformer-based drug recommendation REST API backed by a medical knowledge-base retrieval pipeline. Compares a Hugging Face sentence-transformer + FAISS retriever against a TF-IDF baseline.
+
+On the bundled 20-query eval set the transformer wins on every metric (R@1, R@3, R@5, MRR) and lifts recall@5 from **0.907 → 0.938**. The gain is concentrated on paraphrased / symptom-level queries — see [`docs/RESULTS.md`](docs/RESULTS.md) for the per-query breakdown.
 
 ## Architecture
 
@@ -60,7 +62,8 @@ drug-recommendation-system/
 │   │   └── eval_queries.json
 │   └── processed/          # generated artifacts (gitignored)
 ├── docs/
-│   └── API.md
+│   ├── API.md
+│   └── RESULTS.md
 └── notebooks/
 ```
 
@@ -107,13 +110,20 @@ See `docs/API.md` for full request/response schemas.
 
 ## Evaluation
 
-`scripts/evaluate.py` runs both retrievers against `data/raw/eval_queries.json` and reports:
+`scripts/evaluate.py` runs both retrievers against `data/raw/eval_queries.json` and writes:
 
 - recall@1, recall@3, recall@5
 - mean reciprocal rank (MRR)
-- per-query winner
+- per-query winner table → `data/processed/eval_report.json`
 
-On the bundled eval set the transformer retriever beats the TF-IDF baseline by ~15% on recall@5.
+Headline numbers from the bundled run:
+
+| Retriever | R@1 | R@3 | R@5 | MRR |
+| --- | ---: | ---: | ---: | ---: |
+| TF-IDF baseline | 0.900 | 0.875 | 0.907 | 0.942 |
+| Transformer + FAISS | **0.950** | **0.917** | **0.938** | **0.967** |
+
+The transformer wins on every metric. The biggest single-query swing is +200% recall@5 on *"burning shooting nerve pain in feet from diabetes"*, where TF-IDF can't bridge the symptom-to-indication paraphrase. Full breakdown in [`docs/RESULTS.md`](docs/RESULTS.md).
 
 ## Notes
 

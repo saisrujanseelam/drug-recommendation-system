@@ -25,6 +25,7 @@ ENV/
 # Project artifacts
 data/processed/*.pkl
 data/processed/*.npy
+data/processed/*.npz
 data/processed/*.faiss
 data/processed/*.json
 models/

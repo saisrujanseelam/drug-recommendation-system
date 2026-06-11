@@ -14,6 +14,10 @@ from src.baseline_tfidf import TfidfBaseline  # noqa: E402
 from src.evaluation import evaluate_retriever, relative_improvement  # noqa: E402
 
 
+def _format_header() -> str:
+    return f"{'Retriever':<20} {'R@1':>8} {'R@3':>8} {'R@5':>8} {'MRR':>8}"
+
+
 def _format_row(label: str, recall1: float, recall3: float, recall5: float, mrr: float) -> str:
     return f"{label:<20} {recall1:>8.4f} {recall3:>8.4f} {recall5:>8.4f} {mrr:>8.4f}"
 
@@ -49,7 +53,7 @@ def main() -> None:
     transformer_result = evaluate_retriever("transformer+faiss", queries, transformer_retrieve)
     tfidf_result = evaluate_retriever("tfidf", queries, tfidf_retrieve)
 
-    header = _format_row("Retriever", "R@1", "R@3", "R@5", "MRR")
+    header = _format_header()
     print()
     print(header)
     print("-" * len(header))
